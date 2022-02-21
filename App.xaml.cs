@@ -30,6 +30,7 @@ namespace Rent_a_car
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+            Rent_a_car_DB.InitializeDB();
         }
 
         /// <summary>
