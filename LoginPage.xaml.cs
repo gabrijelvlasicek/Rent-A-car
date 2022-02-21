@@ -26,5 +26,20 @@ namespace Rent_a_car
         {
             this.InitializeComponent();
         }
+
+        private void button_prijavi_se_Click(object sender, RoutedEventArgs e)
+        {
+            string kor_ime = textbox_korisnicko_ime.Text;
+            string password = passwordbox_lozinka.Password;
+
+            if(kor_ime == "admin" && password == "admin")
+            {
+                this.Frame.Navigate(typeof(MainPage));
+            }
+            else
+            {
+                textblock_kriva_sifra_ili_ime.Text = "Krivo korisničko ime ili loznika.";
+            }
+        }
     }
 }

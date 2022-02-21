@@ -6,6 +6,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="#e6e6e6"> <!-- Dodajemo background color main stranice --> 
+    Background="#e6e6e6">
+    <!-- Dodajemo background color main stranice -->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="230*"/>
+        </Grid.RowDefinitions>
+
+        <!--#474747-->
+        <Rectangle Grid.Column="1" Fill="#e6aeae">
+        </Rectangle>
+        
+        
+    </Grid>
 
 </Page>
