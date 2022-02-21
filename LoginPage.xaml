@@ -5,7 +5,6 @@
     xmlns:local="using:Rent_a_car"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:gif="using:XamlAnimatedGif"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -26,7 +25,7 @@
         </Border>
 
         <!--SLIKE-->
-        <Image Canvas.ZIndex="1" gif:AnimationBehavior.SourceUri="gif1.gif"  Margin="5,139,4,392"/>
+        <Image Canvas.ZIndex="1" Source="Assets/logo-removebg-preview.png"  Margin="5,139,4,392"/>
 
         
               
