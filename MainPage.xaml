@@ -6,38 +6,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="#e6e6e6"> <!-- Dodajemo background color main stranice --> 
 
-    <Grid Background="White">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="700"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <RelativePanel Grid.Column="0" Background="#FFFF5F83">
-            <Grid RenderTransformOrigin="0.5,0.5" Width="800" Height="995" Margin="700,0,0,0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="340*"/>
-                    <ColumnDefinition Width="0*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RenderTransform>
-                    <CompositeTransform Rotation="0"/>
-                </Grid.RenderTransform>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="510"/>
-                    <RowDefinition Height="510"/>
-                </Grid.RowDefinitions>
-            </Grid>
-            <TextBlock x:Name="texblock1" FontFamily="Times New Roman" FontSize="50px" TextAlignment="Center" Text="Započnimo!" TextWrapping="Wrap" Height="100" Width="500" RelativePanel.AlignHorizontalCenterWithPanel="True" Padding="0,50,0,0"/>
-            <ListView/>
-            <TextBlock x:Name="textblock2" RelativePanel.AlignHorizontalCenterWithPanel="True" FontFamily="Times New Roman" FontSize="50px" TextAlignment="Center" Text="Korisničko ime" Margin="0,150,0,0" TextWrapping="Wrap" Height="85" Width="345"/>
-            <TextBox x:Name="texbox1" FontFamily="Times New Roman" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="50px" TextAlignment="Center"  Margin="0,240,0,0"  Height="85" Width="345" TextWrapping="Wrap"/>
-            <TextBlock x:Name="textblock3" RelativePanel.AlignHorizontalCenterWithPanel="True" FontFamily="Times New Roman" FontSize="50px" TextAlignment="Center" Text="Lozinka" Margin="0,350,0,0" TextWrapping="Wrap" Height="85" Width="345"/>
-            <TextBox x:Name="texbox2" FontFamily="Times New Roman" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="50px" TextAlignment="Center"  Margin="0,440,0,0"  Height="85" Width="345" TextWrapping="Wrap"/>
-            <TextBlock x:Name="textblock4" RelativePanel.AlignHorizontalCenterWithPanel="True" FontFamily="Times New Roman" FontSize="50px" TextAlignment="Center" Text="Ponovljena lozinka" Margin="0,550,0,0" TextWrapping="Wrap" Height="120" Width="345"/>
-            <TextBox x:Name="texbox3" FontFamily="Times New Roman" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="50px" TextAlignment="Center"  Margin="0,680,0,0"  Height="85" Width="345" TextWrapping="Wrap"/>
-            <CheckBox x:Name="checkbox1" Content="Prikaži lozinku" FontFamily="Times New Roman" FontSize="30" Width="230" Height="45" Margin="310,775,0,0"/>
-        </RelativePanel>
-        <Button x:Name="button1" Content="REGISTRIRAJ SE" Height="60" Width="420" HorizontalAlignment="Center" Margin="0,700,0,0" VerticalAlignment="Center" Foreground="#FF0051FF" FontFamily="Times New Roman" FontSize="50" Background="#FFFFFF82"/>
-        <Button x:Name="button2" Content="PRIJAVA" Height="60" Width="420" HorizontalAlignment="Center" Margin="0,850,0,0" VerticalAlignment="Center" Foreground="#FF0051FF" FontFamily="Times New Roman" FontSize="50" Background="#FFFFFF82"/>
-    </Grid>
 </Page>
