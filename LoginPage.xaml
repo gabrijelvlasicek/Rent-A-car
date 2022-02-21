@@ -5,6 +5,7 @@
     xmlns:local="using:Rent_a_car"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:gif="using:XamlAnimatedGif"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -17,7 +18,7 @@
         <!--PODJELA NA KOLONE-->
         <Rectangle Grid.Column="0" Fill="#e6aeae">
         </Rectangle>
-        <Rectangle Grid.Column="1" Fill="#e3d1d1">
+        <Rectangle Grid.Column="1" Fill="#2f2f2f">
         </Rectangle>
 
         <!--DODAVANJE BORDERA-->
@@ -25,7 +26,10 @@
         </Border>
 
         <!--SLIKE-->
-        <Image Canvas.ZIndex="1" Source="Assets/logo-removebg-preview.png" Margin="5,139,4,392"/>
+        <Image Canvas.ZIndex="1" gif:AnimationBehavior.SourceUri="gif1.gif"  Margin="5,139,4,392"/>
+
+        
+              
 
         <!--OSTALI ELEMENTI-->
         <TextBlock x:Name="textblock_title" HorizontalAlignment="Left" Margin="71,693,0,0" Text="RENT A CAR | 🚗" TextAlignment="Center" FontFamily="Arial" FontSize="60px" TextWrapping="Wrap" VerticalAlignment="Top" Height="96" Width="526" FontWeight="Bold" FontStyle="Italic" CharacterSpacing="2"/>
