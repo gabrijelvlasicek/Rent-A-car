@@ -15,6 +15,6 @@
         </Grid.RowDefinitions>
         <!--#474747-->
         <Rectangle Grid.Column="1" Fill="#e6aeae"/>
-        <Custom:DataGrid Name="pogledkorisnika" Margin="10,10,10,10"/>
+        <Custom:DataGrid x:Name="pogledkorisnika" Margin="10, 10, 10, 10" Grid.Row="1"/>
     </Grid>
 </Page>

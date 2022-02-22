@@ -25,7 +25,9 @@ namespace Rent_a_car
         public MainPage()
         {
             this.InitializeComponent();
-            Rent_a_car_DB.addRecord("10293847562", "Marko", "Mamić", "Praška 7", "17.5.2002." );
+            Rent_a_car_DB.izbrisi();
+            Rent_a_car_DB.addRecord(11111178910, "DEAN", "VIDOVIC", "A. NEMCICA 12", "30.10.2004.");
+            pogledkorisnika.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka();
         }
 
     }
