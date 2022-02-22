@@ -15,16 +15,17 @@ namespace Rent_a_car
         {
             InitializeDB();
         }
+
         public async static void InitializeDB()
         {
             String nazivBaze = "RentAcar.db";
             await ApplicationData.Current.LocalFolder.CreateFileAsync(nazivBaze, CreationCollisionOption.OpenIfExists); //naziv baze, i funkcija koja ju otvara ako postoji
-            string putDoBaze = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze); //funkcija koja trazi put do baze koja je drugi argument
+            String putDoBaze = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze); //funkcija koja trazi put do baze koja je drugi argument
 
             using (SqliteConnection con = new SqliteConnection($"Filename={putDoBaze}")) 
             {
                 con.Open();
-                string sintaksaNaredbe = "CREATE TABLE IF NOT EXISTS " +
+                String sintaksaNaredbe = "CREATE TABLE IF NOT EXISTS " +
                                          "Klijenti (" +
                                          "OIB INT(11) PRIMARY KEY NOT NULL," +
                                          "Ime VARCHAR(40) NOT NULL," +
@@ -39,12 +40,7 @@ namespace Rent_a_car
             }
         }
 
-        //internal static void addRecord(String Klijenti, int OIB, String Ime, String Prezime, String Adresa, DateTime DatumRodenja)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        public static void addRecord(Int64 OIB, String Ime, String Prezime, String Adresa, String Datum_rodenja)
+        public static void dodavanjeKlijenta(Int64 OIB, String Ime, String Prezime, String Adresa, String Datum_rodenja)
         {
             String nazivBaze = "RentAcar.db";
             if (!OIB.Equals("") && !Ime.Equals("") && !Prezime.Equals("") && !Adresa.Equals("") && !Datum_rodenja.Equals(""))
@@ -64,28 +60,8 @@ namespace Rent_a_car
 
                     naredba_insert.ExecuteReader();
                     con.Close();
-
                 }
             }
-        }
-
-        public class detaljiKlijenta
-        {
-            public Int64 oib { get; set; }
-            public String ime { get; set; }
-            public String prezime { get; set; }
-            public String adresa { get; set; }
-            public String datum_rodenja { get; set; }
-
-            public detaljiKlijenta(Int64 OIB, String Ime, String Prezime, String Adresa, String Datum_rodenja)
-            {
-                oib = OIB;
-                ime = Ime;
-                prezime = Prezime;
-                adresa = Adresa;
-                datum_rodenja = Datum_rodenja;
-            }
-
         }
 
         public static void izbrisi()
@@ -103,6 +79,26 @@ namespace Rent_a_car
             }
         }
 
+
+        public class detaljiKlijenta
+        {
+            public Int64 OIB { get; set; }
+            public String Ime { get; set; }
+            public String Prezime { get; set; }
+            public String Adresa { get; set; }
+            public String Rođenje { get; set; }
+
+            public detaljiKlijenta(Int64 OIB, String Ime, String Prezime, String Adresa, String Rođenje)
+            {
+                this.OIB = OIB;
+                this.Ime = Ime;
+                this.Prezime = Prezime;
+                this.Adresa = Adresa;
+                this.Rođenje = Rođenje;
+            }
+
+        }
+
         public static List<detaljiKlijenta> DohvatSvihPodataka()
         {
             String nazivBaze = "RentAcar.db";
@@ -117,7 +113,7 @@ namespace Rent_a_car
 
                 SqliteDataReader reader = cmd_getAllRec.ExecuteReader();
 
-                while(reader.Read())
+                while(reader.Read()) //dok je moguce citati iz baze cita
                 {
                     klijentiList.Add(new detaljiKlijenta(reader.GetInt64(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4)));
                 }

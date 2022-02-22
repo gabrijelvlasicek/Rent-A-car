@@ -15,6 +15,52 @@
         </Grid.RowDefinitions>
         <!--#474747-->
         <Rectangle Grid.Column="1" Fill="#e6aeae"/>
-        <Custom:DataGrid x:Name="pogledkorisnika" Margin="10, 10, 10, 10" Grid.Row="1"/>
+        <!--<Custom:DataGrid x:Name="pogledkorisnika" Margin="0,0,10,0" Grid.Row="1"/>-->
+
+        <!-- NASLOV GLAVNOG IZBORNIKA -->
+        <TextBlock x:Name="textblock_naslov_izbornika" HorizontalAlignment="Left" Text="GLAVNI IZBORNIK | 📑" TextAlignment="Center" FontFamily="Arial" FontSize="50px" TextWrapping="Wrap" VerticalAlignment="Top" Height="86" Width="589" Margin="98,51,0,0"/>
+        <Image Source="Assets/logo.png" Margin="1686,6,57,6"/>
+        <Border BorderThickness = "0, 0, 0, 2" BorderBrush="Black"></Border>
+
+        <!-- BUTTONI MENIJA -->
+        <!-- KLIJENTI -->
+        <StackPanel x:Name="panel_klijenti" Margin="244,112,1266,148" Orientation="Vertical" Grid.Row="1">
+            <Button x:Name="button_klijenti" Height="575" Width="350" CornerRadius="20" BorderBrush="Black" Background="#FFE6AEAE">
+                <StackPanel>
+                    <Image Source="Assets/people_logo.png" Height="407" Width="298"/>
+                    <TextBlock Text="KLIJENTI" TextAlignment="Center" FontFamily="Arial" FontSize="40" Foreground="Black" FontWeight="Bold" FontStyle="Italic"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <!-- AUTOMOBILI -->
+        <StackPanel x:Name="panel_auti" Margin="778,112,732,149" Orientation="Vertical" Grid.Row="1">
+            <Button x:Name="button_auti" Height="575" Width="350" CornerRadius="20" BorderBrush="Black" Background="#FFE6AEAE">
+                <StackPanel>
+                    <Image Source="Assets/car_logo.png" Height="407" Width="298"/>
+                    <TextBlock Text="AUTOMOBILI" TextAlignment="Center" FontFamily="Arial" FontSize="40" Foreground="Black" FontWeight="Bold" FontStyle="Italic"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <!-- REZERVACIJE -->
+        <StackPanel x:Name="panel_rezervacije" Margin="1319,112,191,149" Orientation="Vertical" Grid.Row="1">
+            <Button x:Name="button_rezervacije" Height="575" Width="350" CornerRadius="20" BorderBrush="Black" Background="#FFE6AEAE">
+                <StackPanel>
+                    <Image Source="Assets/reserved_logo.png" Height="407" Width="298"/>
+                    <TextBlock Text="REZERVACIJE" TextAlignment="Center" FontFamily="Arial" FontSize="40" Foreground="Black" FontWeight="Bold" FontStyle="Italic"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <!-- LOGOUT -->
+        <StackPanel x:Name="panel_logout" Margin="35,778,1721,10" Orientation="Vertical" Grid.Row="1">
+            <Button x:Name="button_logout" Height="59" Width="82" CornerRadius="20" BorderBrush="Black" Background="#FFE6AEAE" Click="button_logout_Click">
+                <StackPanel>
+                    <Image Source="Assets/logout.png" Height="47" Width="44"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
     </Grid>
 </Page>

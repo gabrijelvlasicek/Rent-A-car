@@ -134,8 +134,11 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\logo-removebg-preview.png" />
+    <Content Include="Assets\car_logo.png" />
     <Content Include="Assets\logo.png" />
+    <Content Include="Assets\logout.png" />
+    <Content Include="Assets\people_logo.png" />
+    <Content Include="Assets\reserved_logo.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

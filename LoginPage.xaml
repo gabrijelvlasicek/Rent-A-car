@@ -18,7 +18,7 @@
         <Rectangle Grid.Column="0" Fill="#e6aeae">
         </Rectangle>
         <!--#474747-->
-        <Rectangle Grid.Column="1" Fill="#919191">
+        <Rectangle Grid.Column="1" Fill="#e6e6e6">
         </Rectangle>
 
         <!--DODAVANJE BORDERA-->
@@ -26,7 +26,7 @@
         </Border>
 
         <!--SLIKE-->
-        <Image Canvas.ZIndex="1" Source="Assets/logo-removebg-preview.png"  Margin="5,139,4,392"/>
+        <Image Canvas.ZIndex="1" Source="Assets/logo.png"  Margin="5,139,4,392"/>
 
 
 
@@ -38,7 +38,7 @@
         <TextBlock x:Name="textblock_loznika" HorizontalAlignment="Left" Margin="139,540,0,0" Text="Lozinka " TextAlignment="Center" FontFamily="Arial" FontSize="25px" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="197" Grid.Column="1" FontWeight="Bold" TextDecorations="None"/>
         <TextBox x:Name="textbox_korisnicko_ime" Grid.Column="1" HorizontalAlignment="Left" Margin="435,411,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="436" PlaceholderText="Unesite korisničko ime"/>
         <PasswordBox x:Name="passwordbox_lozinka" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="436" PlaceholderText="Unesite lozinku" Margin="435,537,0,0"/>
-        <Button x:Name="button_prijavi_se" Content="PRIJAVITE SE" Grid.Column="1" Background="#e6aeae" Margin="0,700,0,0" VerticalAlignment="Top" Height="55" Width="300" FontFamily="Arial" FontSize="30px" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Click="button_prijavi_se_Click"/>
+        <Button x:Name="button_prijavi_se" Content="PRIJAVITE SE" CornerRadius="5" Grid.Column="1" Background="#e6aeae" Margin="0,700,0,0" VerticalAlignment="Top" Height="55" Width="300" FontFamily="Arial" FontSize="30px" HorizontalAlignment="Center" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Click="button_prijavi_se_Click"/>
         <TextBlock x:Name="textblock_kriva_sifra_ili_ime" Grid.Column="1" HorizontalAlignment="Left" Margin="435,609,0,0" Text="" TextAlignment="Center" FontFamily="Arial" FontSize="25px" TextWrapping="Wrap" VerticalAlignment="Top" Width="412" Height="58" FontStyle="Italic"/>
 
 

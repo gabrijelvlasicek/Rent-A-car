@@ -25,10 +25,14 @@ namespace Rent_a_car
         public MainPage()
         {
             this.InitializeComponent();
-            Rent_a_car_DB.izbrisi();
-            Rent_a_car_DB.addRecord(11111178910, "DEAN", "VIDOVIC", "A. NEMCICA 12", "30.10.2004.");
-            pogledkorisnika.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka();
+            //Rent_a_car_DB.izbrisi();
+            //Rent_a_car_DB.dodavanjeKlijenta(11111178910, "DEAN", "VIDOVIC", "A. NEMCICA 12", "30.10.2004.");
+            //pogledkorisnika.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka();
         }
 
+        private void button_logout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(LoginPage));
+        }
     }
 }
