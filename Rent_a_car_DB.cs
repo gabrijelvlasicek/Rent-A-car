@@ -196,6 +196,37 @@ namespace Rent_a_car
             }
         }
 
+        public static void brisanjeAutomobila(Int64 ID)
+        {
+            String nazivBaze = "RentAcar.db";
+            string putDoBaze = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze);
+            using (SqliteConnection con = new SqliteConnection($"Filename={putDoBaze}"))
+            {
+                con.Open();
+                SqliteCommand naredba_insert = new SqliteCommand();
+                naredba_insert.Connection = con; //konekcija naredbe se nalazi u varijabli con
+                naredba_insert.CommandText = "DELETE FROM Automobili WHERE ID=@ID";
+                naredba_insert.Parameters.AddWithValue("@ID", ID);
+                naredba_insert.ExecuteReader();
+                con.Close();
+            }
+        }
+
+        public static void izbrisi2()
+        {
+            String nazivBaze = "RentAcar.db";
+            String pathToDB = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze);
+
+            using (SqliteConnection con = new SqliteConnection($"Filename={pathToDB}"))
+            {
+                con.Open();
+                String naredba_delete = "DELETE FROM Automobili";
+                SqliteCommand cmd_getAllRec = new SqliteCommand(naredba_delete, con);
+                SqliteDataReader reader = cmd_getAllRec.ExecuteReader();
+                con.Close();
+            }
+        }
+
         public static List<detaljiAutomobila> DohvatSvihPodataka2()
         {
             String nazivBaze = "RentAcar.db";

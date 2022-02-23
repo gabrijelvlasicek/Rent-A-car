@@ -60,7 +60,7 @@ namespace Rent_a_car
             }
             else
             {
-                textbox_provjera_oib.Text = "Niste unjeli sve podatke ili ste ih unjeli pogrešno.";
+                textbox_provjera_oib.Text = "Niste unijeli sve podatke ili ste ih unijeli pogrešno.";
             }
 
             pregledkorisnika.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka();
@@ -83,8 +83,7 @@ namespace Rent_a_car
             else
             {
                 textbox_provjera_oib_delete.Text = "Ovaj OIB ne postoji!";
-            }
-            
+            } 
         }
     }
 }
