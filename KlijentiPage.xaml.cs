@@ -22,6 +22,7 @@ namespace Rent_a_car
     /// </summary>
     public sealed partial class KlijentiPage : Page
     {
+
         public KlijentiPage()
         {
             this.InitializeComponent();
@@ -38,36 +39,52 @@ namespace Rent_a_car
             //Rent_a_car_DB.dodavanjeKlijenta(11111178910, "DEAN", "VIDOVIC", "A. NEMCICA 12", "30.10.2004.");
             //pogledkorisnika.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka();
 
-            Int64 oib = Convert.ToInt64(textbox_oib.Text);
+            pregledkorisnika.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka();
+
+            //Int64 oib = Convert.ToInt64(textbox_oib.Text);
+            String oib = textbox_oib.Text;
             String ime = textbox_ime.Text.ToUpper();
             String prezime = textbox_prezime.Text.ToUpper();
             String adresa = textbox_adresa.Text.ToUpper();
             String rodenje = textbox_rodenje.Text.ToUpper();
+
 
             if (textbox_oib.Text.Length == 11)
             {
                 if (textbox_oib.Text != "" && ime != "" && prezime != "" && adresa != "" && rodenje != "")
                 {
                     textbox_provjera_oib.Text = "";
-                    Rent_a_car_DB.dodavanjeKlijenta(oib, ime, prezime, adresa, rodenje);
+                    Rent_a_car_DB.dodavanjeKlijenta(Convert.ToInt64(oib), ime, prezime, adresa, rodenje);
+                    pregledkorisnika.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka();
                 }
             }
             else
             {
-                textbox_provjera_oib.Text = "OIB mora sadržavati 11 brojeva.";
+                textbox_provjera_oib.Text = "Niste unjeli sve podatke ili ste ih unjeli pogrešno.";
             }
 
-            pregledkorisnika.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka();
-        }
-
-        private void button_refresh_podataka_Click(object sender, RoutedEventArgs e)
-        {
             pregledkorisnika.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka();
         }
 
         private void button_izbrisi_podatke_Click(object sender, RoutedEventArgs e)
         {
             Rent_a_car_DB.izbrisi();
+            pregledkorisnika.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka();
+        }
+
+        private void button_izbrisi_odreden_podatak_Click(object sender, RoutedEventArgs e)
+        {
+            //Int64 oib = Convert.ToInt64(textbox_oib_delete.Text);
+            if(textbox_oib_delete.Text != "")
+            {
+                Rent_a_car_DB.brisanjeKlijenta(Convert.ToInt64(textbox_oib_delete.Text));
+                pregledkorisnika.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka();
+            }
+            else
+            {
+                textbox_provjera_oib_delete.Text = "Ovaj OIB ne postoji!";
+            }
+            
         }
     }
 }

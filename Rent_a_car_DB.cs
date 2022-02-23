@@ -64,6 +64,22 @@ namespace Rent_a_car
             }
         }
 
+        public static void brisanjeKlijenta(Int64 OIB)
+        {
+            String nazivBaze = "RentAcar.db";
+            string putDoBaze = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze);
+            using (SqliteConnection con = new SqliteConnection($"Filename={putDoBaze}"))
+            {
+                con.Open();
+                SqliteCommand naredba_insert = new SqliteCommand();
+                naredba_insert.Connection = con; //konekcija naredbe se nalazi u varijabli con
+                naredba_insert.CommandText = "DELETE FROM Klijenti WHERE OIB=@OIB";
+                naredba_insert.Parameters.AddWithValue("@OIB", OIB);
+                naredba_insert.ExecuteReader();
+                con.Close();
+            }
+        }
+
         public static void izbrisi()
         {
             String nazivBaze = "RentAcar.db";
