@@ -25,7 +25,7 @@
         <!-- BUTTONI MENIJA -->
         <!-- KLIJENTI -->
         <StackPanel x:Name="panel_klijenti" Margin="244,112,1266,148" Orientation="Vertical" Grid.Row="1">
-            <Button x:Name="button_klijenti" Height="575" Width="350" CornerRadius="20" BorderBrush="Black" Background="#FFE6AEAE">
+            <Button x:Name="button_klijenti" Height="575" Width="350" CornerRadius="20" BorderBrush="Black" Background="#FFE6AEAE" Click="button_klijenti_Click">
                 <StackPanel>
                     <Image Source="Assets/people_logo.png" Height="407" Width="298"/>
                     <TextBlock Text="KLIJENTI" TextAlignment="Center" FontFamily="Arial" FontSize="40" Foreground="Black" FontWeight="Bold" FontStyle="Italic"/>
