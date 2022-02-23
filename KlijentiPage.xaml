@@ -62,7 +62,7 @@
 
         <TextBlock x:Name="textblock_oib_delete" Text="OIB: " HorizontalAlignment="Left" Margin="232,657,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold"/>
         <TextBox x:Name="textbox_oib_delete" TextAlignment="Left" HorizontalAlignment="Left" Margin="372,657,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite OIB"/>
-        <TextBlock x:Name="textbox_provjera_oib_delete" HorizontalAlignment="Left" Margin="372,700,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="310"/>
+        <TextBlock x:Name="textbox_provjera_oib_delete" HorizontalAlignment="Left" Margin="460,700,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="310"/>
         <Button x:Name="button_izbrisi_odreden_podatak" Content="IZBRIŠI KLIJENTA" CornerRadius="5" Background="#e6aeae" Margin="164,748,0,0" VerticalAlignment="Top" Height="55" Width="689" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Row="1" Click="button_izbrisi_odreden_podatak_Click"/>
     </Grid>
 </Page>
