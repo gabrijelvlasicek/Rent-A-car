@@ -32,32 +32,37 @@
         </StackPanel>
 
         <!--textboxovi i blockovi za unos podataka-->
-        <TextBlock x:Name="textblock_naslov" Text="UNOS OSOBNIH PODATAKA KLIJENTA" HorizontalAlignment="Left" Margin="144,87,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="598" FontWeight="Bold" FontStyle="Italic"/>
-        <TextBlock x:Name="textblock_popis_klijenata" Text="POPIS KLIJENATA" HorizontalAlignment="Left" Margin="1091,87,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="598" FontWeight="Bold" FontStyle="Italic"/>
+        <TextBlock x:Name="textblock_naslov" Text="UNOS OSOBNIH PODATAKA KLIJENTA" HorizontalAlignment="Left" Margin="180,42,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="598" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline"/>
+        <TextBlock x:Name="textblock_popis_klijenata" Text="POPIS KLIJENATA" HorizontalAlignment="Left" Margin="1091,42,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="598" FontWeight="Bold" FontStyle="Italic"/>
 
 
-        <TextBlock x:Name="textblock_oib" Text="OIB: " HorizontalAlignment="Left" Margin="153,212,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold"/>
-        <TextBox x:Name="textbox_oib" TextAlignment="Left" HorizontalAlignment="Left" Margin="540,212,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite OIB"/>
-        <TextBlock x:Name="textbox_provjera_oib" HorizontalAlignment="Left" Margin="542,251,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="310"/>
+        <TextBlock x:Name="textblock_oib" Text="OIB: " HorizontalAlignment="Left" Margin="148,125,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold"/>
+        <TextBox x:Name="textbox_oib" TextAlignment="Left" HorizontalAlignment="Left" Margin="535,125,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite OIB"/>
+        <TextBlock x:Name="textbox_provjera_oib" HorizontalAlignment="Left" Margin="369,436,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="378" Height="20"/>
 
 
-        <TextBlock x:Name="textblock_ime" Text="IME: " HorizontalAlignment="Left" Margin="153,292,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold"/>
-        <TextBox x:Name="textbox_ime" TextAlignment="Left" HorizontalAlignment="Left" Margin="540,292,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite ime"/>
+        <TextBlock x:Name="textblock_ime" Text="IME: " HorizontalAlignment="Left" Margin="150,192,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold"/>
+        <TextBox x:Name="textbox_ime" TextAlignment="Left" HorizontalAlignment="Left" Margin="537,192,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite ime"/>
 
-        <TextBlock x:Name="textblock_prezime" Text="PREZIME: " HorizontalAlignment="Left" Margin="153,380,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="181" FontWeight="Bold"/>
-        <TextBox x:Name="textbox_prezime" TextAlignment="Left" HorizontalAlignment="Left" Margin="540,380,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite prezime"/>
+        <TextBlock x:Name="textblock_prezime" Text="PREZIME: " HorizontalAlignment="Left" Margin="152,252,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="181" FontWeight="Bold"/>
+        <TextBox x:Name="textbox_prezime" TextAlignment="Left" HorizontalAlignment="Left" Margin="535,252,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite prezime"/>
 
 
-        <TextBlock x:Name="textblock_rodenje" Text="DATUM ROĐENJA: " HorizontalAlignment="Left" Margin="128,460,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="351" FontWeight="Bold"/>
-        <TextBox x:Name="textbox_rodenje" TextAlignment="Left" HorizontalAlignment="Left" Margin="542,460,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite datum rođenja"/>
+        <TextBlock x:Name="textblock_rodenje" Text="DATUM ROĐENJA: " HorizontalAlignment="Left" Margin="130,317,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="351" FontWeight="Bold"/>
+        <TextBox x:Name="textbox_rodenje" TextAlignment="Left" HorizontalAlignment="Left" Margin="535,317,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite datum rođenja"/>
 
-        <TextBlock x:Name="textblock_adresa" Text="ADRESA STANOVANJA: " HorizontalAlignment="Left" Margin="163,545,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="351" FontWeight="Bold"/>
-        <TextBox x:Name="textbox_adresa" TextAlignment="Left" HorizontalAlignment="Left" Margin="542,545,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite adresu stanovanja"/>
+        <TextBlock x:Name="textblock_adresa" Text="ADRESA STANOVANJA: " HorizontalAlignment="Left" Margin="164,378,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="351" FontWeight="Bold"/>
+        <TextBox x:Name="textbox_adresa" TextAlignment="Left" HorizontalAlignment="Left" Margin="535,378,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite adresu stanovanja"/>
 
-        <Button x:Name="button_unesi_podatke" Content="UNESI PODATKE" CornerRadius="5" Background="#e6aeae" Margin="547,683,0,0" VerticalAlignment="Top" Height="55" Width="300" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Click="button_prijavi_se_Click" Grid.Row="1"/>
-        <Button x:Name="button_refresh_podataka" Content="OSVJEŽI PODATKE" CornerRadius="5" Background="#e6aeae" Margin="1276,683,0,0" VerticalAlignment="Top" Height="55" Width="315" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Row="1" Click="button_refresh_podataka_Click"/>
+        <Button x:Name="button_unesi_podatke" Content="UNESI PODATKE" CornerRadius="5" Background="#e6aeae" Margin="164,478,0,0" VerticalAlignment="Top" Height="55" Width="689" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Click="button_prijavi_se_Click" Grid.Row="1"/>
 
-        <Custom:DataGrid x:Name="pregledkorisnika" HorizontalAlignment="Left" Height="367" Margin="1091,212,0,0" Grid.Row="1" VerticalAlignment="Top" Width="684"/>
-        <Button x:Name="button_izbrisi_podatke" Content="IZBRIŠI PODATKE" CornerRadius="5" Background="#e6aeae" Margin="185,683,0,0" VerticalAlignment="Top" Height="55" Width="300" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Row="1" Click="button_izbrisi_podatke_Click"/>
+        <Custom:DataGrid x:Name="pregledkorisnika" HorizontalAlignment="Left" Height="536" Margin="1091,137,0,0" Grid.Row="1" VerticalAlignment="Top" Width="684"/>
+        <Button x:Name="button_izbrisi_podatke" Content="IZBRIŠI SVE KLIJENTE" CornerRadius="5" Background="#e6aeae" Margin="1091,748,0,0" VerticalAlignment="Top" Height="55" Width="684" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Row="1" Click="button_izbrisi_podatke_Click"/>
+        <TextBlock x:Name="textblock_delete_naslov" Text="BRISANJE KLIJENTA PO OIB-u" HorizontalAlignment="Left" Margin="199,578,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="598" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline"/>
+
+        <TextBlock x:Name="textblock_oib_delete" Text="OIB: " HorizontalAlignment="Left" Margin="232,657,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold"/>
+        <TextBox x:Name="textbox_oib_delete" TextAlignment="Left" HorizontalAlignment="Left" Margin="372,657,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite OIB"/>
+        <TextBlock x:Name="textbox_provjera_oib_delete" HorizontalAlignment="Left" Margin="460,700,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="310"/>
+        <Button x:Name="button_izbrisi_odreden_podatak" Content="IZBRIŠI KLIJENTA" CornerRadius="5" Background="#e6aeae" Margin="164,748,0,0" VerticalAlignment="Top" Height="55" Width="689" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Row="1" Click="button_izbrisi_odreden_podatak_Click"/>
     </Grid>
 </Page>

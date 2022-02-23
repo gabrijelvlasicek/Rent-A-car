@@ -74,27 +74,19 @@ namespace Rent_a_car
             }
         }
 
-        public static void dodavanjeAutomobila(Int64 ID, String Model, Int64 Godina, Decimal Cijena_po_danu, Int64 Količina)
+        public static void brisanjeKlijenta(Int64 OIB)
         {
             String nazivBaze = "RentAcar.db";
-            if (!ID.Equals("") && !Model.Equals("") && !Godina.Equals("") && !Cijena_po_danu.Equals("") && !Količina.Equals(""))
+            string putDoBaze = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze);
+            using (SqliteConnection con = new SqliteConnection($"Filename={putDoBaze}"))
             {
-                string putDoBaze = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze);
-                using (SqliteConnection con = new SqliteConnection($"Filename={putDoBaze}"))
-                {
-                    con.Open();
-                    SqliteCommand naredba_insert = new SqliteCommand();
-                    naredba_insert.Connection = con; //konekcija naredbe se nalazi u varijabli con
-                    naredba_insert.CommandText = "INSERT INTO Automobili(ID, Model, Godina, Cijena_po_danu, Količina) VALUES(@ID, @Model, @Godina, @Cijena_po_danu, @Količina);";
-                    naredba_insert.Parameters.AddWithValue("@ID", ID);
-                    naredba_insert.Parameters.AddWithValue("@Model", Model);
-                    naredba_insert.Parameters.AddWithValue("@Godina", Godina);
-                    naredba_insert.Parameters.AddWithValue("@Cijena_po_danu", Cijena_po_danu);
-                    naredba_insert.Parameters.AddWithValue("@Količina", Količina);
-
-                    naredba_insert.ExecuteReader();
-                    con.Close();
-                }
+                con.Open();
+                SqliteCommand naredba_insert = new SqliteCommand();
+                naredba_insert.Connection = con; //konekcija naredbe se nalazi u varijabli con
+                naredba_insert.CommandText = "DELETE FROM Klijenti WHERE OIB=@OIB";
+                naredba_insert.Parameters.AddWithValue("@OIB", OIB);
+                naredba_insert.ExecuteReader();
+                con.Close();
             }
         }
 
@@ -133,26 +125,6 @@ namespace Rent_a_car
 
         }
 
-
-        public class detaljiAutomobila
-        {
-            public Int64 ID { get; set; }
-            public String Model { get; set; }
-            public Int64 Godina { get; set; }
-            public Decimal Cijena_po_danu { get; set; }
-            public Int64 Količina { get; set; }
-
-            public detaljiAutomobila(Int64 ID, String Model, Int64 Godina, Decimal Cijena_po_danu, Int64 Količina)
-            {
-                this.ID = ID;
-                this.Model = Model;
-                this.Godina = Godina;
-                this.Cijena_po_danu = Cijena_po_danu;
-                this.Količina = Količina;
-            }
-
-        }
-
         public static List<detaljiKlijenta> DohvatSvihPodataka()
         {
             String nazivBaze = "RentAcar.db";
@@ -177,6 +149,52 @@ namespace Rent_a_car
             return klijentiList;
         }
 
+        //----------------------------------------------------------------KLIJENTI----------------------------------------------------------------
+        
+        
+        //----------------------------------------------------------------AUTOMOBILI----------------------------------------------------------------
+        public class detaljiAutomobila
+        {
+            public Int64 ID { get; set; }
+            public String Model { get; set; }
+            public Int64 Godina { get; set; }
+            public Decimal Cijena_po_danu { get; set; }
+            public Int64 Količina { get; set; }
+
+            public detaljiAutomobila(Int64 ID, String Model, Int64 Godina, Decimal Cijena_po_danu, Int64 Količina)
+            {
+                this.ID = ID;
+                this.Model = Model;
+                this.Godina = Godina;
+                this.Cijena_po_danu = Cijena_po_danu;
+                this.Količina = Količina;
+            }
+
+        }
+
+        public static void dodavanjeAutomobila(Int64 ID, String Model, Int64 Godina, Decimal Cijena_po_danu, Int64 Količina)
+        {
+            String nazivBaze = "RentAcar.db";
+            if (!ID.Equals("") && !Model.Equals("") && !Godina.Equals("") && !Cijena_po_danu.Equals("") && !Količina.Equals(""))
+            {
+                string putDoBaze = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze);
+                using (SqliteConnection con = new SqliteConnection($"Filename={putDoBaze}"))
+                {
+                    con.Open();
+                    SqliteCommand naredba_insert = new SqliteCommand();
+                    naredba_insert.Connection = con; //konekcija naredbe se nalazi u varijabli con
+                    naredba_insert.CommandText = "INSERT INTO Automobili(ID, Model, Godina, Cijena_po_danu, Količina) VALUES(@ID, @Model, @Godina, @Cijena_po_danu, @Količina);";
+                    naredba_insert.Parameters.AddWithValue("@ID", ID);
+                    naredba_insert.Parameters.AddWithValue("@Model", Model);
+                    naredba_insert.Parameters.AddWithValue("@Godina", Godina);
+                    naredba_insert.Parameters.AddWithValue("@Cijena_po_danu", Cijena_po_danu);
+                    naredba_insert.Parameters.AddWithValue("@Količina", Količina);
+
+                    naredba_insert.ExecuteReader();
+                    con.Close();
+                }
+            }
+        }
 
         public static List<detaljiAutomobila> DohvatSvihPodataka2()
         {
@@ -200,7 +218,8 @@ namespace Rent_a_car
             }
             return automobiliList;
         }
-        //----------------------------------------------------------------KLIJENTI----------------------------------------------------------------
+        //----------------------------------------------------------------AUTOMOBILI----------------------------------------------------------------
+
 
     }
 }
