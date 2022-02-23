@@ -34,11 +34,11 @@ namespace Rent_a_car
                                          "Adresa VARCHAR(50) NOT NULL," +
                                          "Datum_rodenja VARCHAR(11) NOT NULL)";
                 String automobili = "CREATE TABLE IF NOT EXISTS " +
-                                       "Automobili(" +
-                                         "ID INT(5) PRIMARZ KEY NOT NULL," +
-                                         "Model VARCHAR(40) NOT NULL" +
-                                         "Godina INT(4) NOT NULL"+
-                                         "Cijena_po_danu DECIMAL(20) NOT NULL"+
+                                         "Automobili(" +
+                                         "ID INT(5) PRIMARY KEY NOT NULL," +
+                                         "Model VARCHAR(40) NOT NULL," +
+                                         "Godina INT(4) NOT NULL,"+
+                                         "Cijena_po_danu DECIMAL(20) NOT NULL,"+
                                          "Količina INT(10) NOT NULL)";
 
                 SqliteCommand naredbaZaKreiranjeKlijenata = new SqliteCommand(klijenti, con);
