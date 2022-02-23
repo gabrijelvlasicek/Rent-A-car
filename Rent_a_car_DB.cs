@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using Windows.Storage;
+using Windows.UI.Popups;
 
 namespace Rent_a_car
 {
@@ -33,6 +34,7 @@ namespace Rent_a_car
                                          "Prezime VARCHAR(40) NOT NULL," +
                                          "Adresa VARCHAR(50) NOT NULL," +
                                          "Datum_rodenja VARCHAR(11) NOT NULL)";
+
                 String automobili = "CREATE TABLE IF NOT EXISTS " +
                                          "Automobili(" +
                                          "ID INT(5) PRIMARY KEY NOT NULL," +
@@ -50,7 +52,7 @@ namespace Rent_a_car
             }
         }
 
-        public static void dodavanjeKlijenta(Int64 OIB, String Ime, String Prezime, String Adresa, String Datum_rodenja)
+        public static async void dodavanjeKlijenta(Int64 OIB, String Ime, String Prezime, String Adresa, String Datum_rodenja)
         {
             String nazivBaze = "RentAcar.db";
             if (!OIB.Equals("") && !Ime.Equals("") && !Prezime.Equals("") && !Adresa.Equals("") && !Datum_rodenja.Equals(""))
@@ -61,6 +63,7 @@ namespace Rent_a_car
                     con.Open();
                     SqliteCommand naredba_insert = new SqliteCommand();
                     naredba_insert.Connection = con; //konekcija naredbe se nalazi u varijabli con
+
                     naredba_insert.CommandText = "INSERT INTO Klijenti(OIB, Ime, Prezime, Adresa, Datum_rodenja) VALUES(@OIB, @Ime, @Prezime, @Adresa, @Datum_rodenja);";
                     naredba_insert.Parameters.AddWithValue("@OIB", OIB);
                     naredba_insert.Parameters.AddWithValue("@Ime", Ime);
@@ -68,7 +71,17 @@ namespace Rent_a_car
                     naredba_insert.Parameters.AddWithValue("@Adresa", Adresa);
                     naredba_insert.Parameters.AddWithValue("@Datum_rodenja", Datum_rodenja);
 
-                    naredba_insert.ExecuteReader();
+
+                    // provjera postoji li isti OIB
+                    if (!Rent_a_car_DB.provjeraOIB().Contains(OIB))
+                    {
+                        naredba_insert.ExecuteReader();
+                    }
+                    else
+                    {
+                        MessageDialog dialog = new MessageDialog("Ovaj OIB već postoji.", "Pogreška");
+                        await dialog.ShowAsync();
+                    }
                     con.Close();
                 }
             }
@@ -123,6 +136,30 @@ namespace Rent_a_car
                 this.Rođenje = Rođenje;
             }
 
+        }
+
+
+        public static List<Int64> provjeraOIB()
+        {
+            String nazivBaze = "RentAcar.db";
+
+            List<Int64> oibList = new List<Int64>();
+            String pathToDB = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze);
+            using (SqliteConnection con = new SqliteConnection($"Filename={pathToDB}"))
+            {
+                con.Open();
+                String naredba_select = "SELECT OIB FROM Klijenti";
+                SqliteCommand cmd_getAllRec = new SqliteCommand(naredba_select, con);
+                SqliteDataReader reader = cmd_getAllRec.ExecuteReader();
+
+                while (reader.Read()) //dok je moguce citati iz baze cita
+                {
+                    oibList.Add(reader.GetInt64(0));
+                }
+
+                con.Close();
+            }
+            return oibList;
         }
 
         public static List<detaljiKlijenta> DohvatSvihPodataka()

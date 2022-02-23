@@ -33,12 +33,11 @@
 
         <!--textboxovi i blockovi za unos podataka-->
         <TextBlock x:Name="textblock_naslov" Text="UNOS OSOBNIH PODATAKA KLIJENTA" HorizontalAlignment="Left" Margin="180,42,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="598" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline"/>
-        <TextBlock x:Name="textblock_popis_klijenata" Text="POPIS KLIJENATA" HorizontalAlignment="Left" Margin="1091,42,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="598" FontWeight="Bold" FontStyle="Italic"/>
+        <TextBlock x:Name="textblock_popis_klijenata" Text="POPIS KLIJENATA" HorizontalAlignment="Left" Margin="1091,42,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="598" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline"/>
 
 
         <TextBlock x:Name="textblock_oib" Text="OIB: " HorizontalAlignment="Left" Margin="148,125,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold"/>
         <TextBox x:Name="textbox_oib" TextAlignment="Left" HorizontalAlignment="Left" Margin="535,125,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite OIB"/>
-        <TextBlock x:Name="textbox_provjera_oib" HorizontalAlignment="Left" Margin="369,436,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="378" Height="20"/>
 
 
         <TextBlock x:Name="textblock_ime" Text="IME: " HorizontalAlignment="Left" Margin="150,192,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold"/>
@@ -62,7 +61,6 @@
 
         <TextBlock x:Name="textblock_oib_delete" Text="OIB: " HorizontalAlignment="Left" Margin="232,657,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold"/>
         <TextBox x:Name="textbox_oib_delete" TextAlignment="Left" HorizontalAlignment="Left" Margin="372,657,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite OIB"/>
-        <TextBlock x:Name="textbox_provjera_oib_delete" HorizontalAlignment="Left" Margin="460,700,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="310"/>
         <Button x:Name="button_izbrisi_odreden_podatak" Content="IZBRIŠI KLIJENTA" CornerRadius="5" Background="#e6aeae" Margin="164,748,0,0" VerticalAlignment="Top" Height="55" Width="689" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Row="1" Click="button_izbrisi_odreden_podatak_Click"/>
     </Grid>
 </Page>
