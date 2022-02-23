@@ -39,5 +39,10 @@ namespace Rent_a_car
         {
             this.Frame.Navigate(typeof(KlijentiPage));
         }
+
+        private void button_auti_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AutomobiliPage));
+        }
     }
 }
