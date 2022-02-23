@@ -12,6 +12,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Popups;
+
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,12 +27,13 @@ namespace Rent_a_car
         public AutomobiliPage()
         {
             this.InitializeComponent();
+            pregledautomobila.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka2();
         }
         private void button_back_Click1(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage));
         }
-        private void button_prijavi_se_Click(object sender, RoutedEventArgs e)
+        private async void button_prijavi_se_Click(object sender, RoutedEventArgs e)
         {
             String ID = textbox_ID.Text;
             String model = textbox_model.Text.ToUpper();
@@ -42,14 +45,19 @@ namespace Rent_a_car
             {
                 if (textbox_ID.Text != "" && model != "" && godina != "" && cijena_po_danu != "" && količina != "")
                 {
-                    textbox_provjera_ID.Text = "";
                     Rent_a_car_DB.dodavanjeAutomobila(Convert.ToInt64(ID), model, Convert.ToInt64(godina), (decimal)Convert.ToDouble(cijena_po_danu), Convert.ToInt64(količina));
                     pregledautomobila.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka2();
+                    textbox_ID.Text = "";
+                    textbox_model.Text = "";
+                    textbox_godina.Text = "";
+                    textbox_cijena_po_danu.Text = "";
+                    textbox_količina.Text = "";
                 }
             }
             else
             {
-                textbox_provjera_ID.Text = "Niste unijeli sve podatke ili ste ih unijeli pogrešno.";
+                MessageDialog dialog = new MessageDialog("Niste unijeli sve podatke ili ste ih unijeli pogrešno.", "Pogreška");
+                await dialog.ShowAsync();
             }
             pregledautomobila.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka2();
         }
@@ -58,17 +66,25 @@ namespace Rent_a_car
             Rent_a_car_DB.izbrisi2();
             pregledautomobila.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka2();
         }
-        private void button_izbrisi_odreden_podatak_Click1(object sender, RoutedEventArgs e)
+        private async void button_izbrisi_odreden_podatak_Click1(object sender, RoutedEventArgs e)
         {
-            //Int64 oib = Convert.ToInt64(textbox_oib_delete.Text);
-            if (textbox_ID_delete.Text != "")
+
+            if (textbox_ID_delete.Text != "" && textbox_ID_delete.Text.Length == 5)
             {
                 Rent_a_car_DB.brisanjeAutomobila(Convert.ToInt64(textbox_ID_delete.Text));
                 pregledautomobila.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka2();
+                textbox_ID_delete.Text = "";
+            }
+            else if (textbox_ID_delete.Text.Length < 11 || textbox_ID_delete.Text.Length > 11)
+            {
+                MessageDialog dialog = new MessageDialog("OIB mora sadržavati 11 brojeva!", "Pogreška");
+                await dialog.ShowAsync();
+                //textbox_provjera_oib_delete.Text = "Ovaj OIB ne postoji!";
             }
             else
             {
-                textbox_provjera_ID_delete.Text = "Ovaj ID ne postoji!";
+                MessageDialog dialog = new MessageDialog("Ovaj OIB ne postoji!", "Pogreška");
+                await dialog.ShowAsync();
             }
         }
     }

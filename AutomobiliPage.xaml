@@ -38,7 +38,6 @@
 
         <TextBlock x:Name="textblock_ID" Text="ID: " HorizontalAlignment="Left" Margin="148,125,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold"/>
         <TextBox x:Name="textbox_ID" TextAlignment="Left" HorizontalAlignment="Left" Margin="535,125,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite ID"/>
-        <TextBlock x:Name="textbox_provjera_ID" HorizontalAlignment="Left" Margin="369,436,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="378" Height="20"/>
 
 
         <TextBlock x:Name="textblock_model" Text="MODEL: " HorizontalAlignment="Left" Margin="177,192,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold"/>
@@ -54,7 +53,7 @@
         <TextBlock x:Name="textblock_količina" Text="KOLIČINA: " HorizontalAlignment="Left" Margin="80,378,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="351" FontWeight="Bold"/>
         <TextBox x:Name="textbox_količina" TextAlignment="Left" HorizontalAlignment="Left" Margin="535,378,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite količinu"/>
 
-        <Button x:Name="button_unesi_podatke1" Content="UNESI PODATKE" CornerRadius="5" Background="#e6aeae" Margin="164,478,0,0" VerticalAlignment="Top" Height="55" Width="689" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Click="button_prijavi_se_Click1" Grid.Row="1"/>
+        <Button x:Name="button_unesi_podatke1" Content="UNESI PODATKE" CornerRadius="5" Background="#e6aeae" Margin="164,478,0,0" VerticalAlignment="Top" Height="55" Width="689" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Click="button_prijavi_se_Click" Grid.Row="1"/>
 
         <Custom:DataGrid x:Name="pregledautomobila" HorizontalAlignment="Left" Height="536" Margin="1091,137,0,0" Grid.Row="1" VerticalAlignment="Top" Width="684"/>
         <Button x:Name="button_izbrisi_podatke1" Content="IZBRIŠI SVE AUTOMOBILE" CornerRadius="5" Background="#e6aeae" Margin="1091,748,0,0" VerticalAlignment="Top" Height="55" Width="684" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Row="1" Click="button_izbrisi_podatke_Click1"/>
@@ -62,7 +61,6 @@
 
         <TextBlock x:Name="textblock_ID_delete" Text="OIB: " HorizontalAlignment="Left" Margin="232,657,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold"/>
         <TextBox x:Name="textbox_ID_delete" TextAlignment="Left" HorizontalAlignment="Left" Margin="372,657,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite ID"/>
-        <TextBlock x:Name="textbox_provjera_ID_delete" HorizontalAlignment="Left" Margin="460,700,0,0" Grid.Row="1" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="310"/>
         <Button x:Name="button_izbrisi_odreden_podatak1" Content="IZBRIŠI KLIJENTA" CornerRadius="5" Background="#e6aeae" Margin="164,748,0,0" VerticalAlignment="Top" Height="55" Width="689" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Row="1" Click="button_izbrisi_odreden_podatak_Click1"/>
     </Grid>
 </Page>
