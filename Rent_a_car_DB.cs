@@ -26,22 +26,25 @@ namespace Rent_a_car
             using (SqliteConnection con = new SqliteConnection($"Filename={putDoBaze}")) 
             {
                 con.Open();
-                String sintaksaNaredbe = "CREATE TABLE IF NOT EXISTS " +
+                String klijenti = "CREATE TABLE IF NOT EXISTS " +
                                          "Klijenti (" +
                                          "OIB INT(11) PRIMARY KEY NOT NULL," +
                                          "Ime VARCHAR(40) NOT NULL," +
                                          "Prezime VARCHAR(40) NOT NULL," +
                                          "Adresa VARCHAR(50) NOT NULL," +
-                                         "Datum_rodenja VARCHAR(11) NOT NULL)" +
-                                         "Automobili(" +
+                                         "Datum_rodenja VARCHAR(11) NOT NULL)";
+                String automobili = "CREATE TABLE IF NOT EXISTS " +
+                                       "Automobili(" +
                                          "ID INT(5) PRIMARZ KEY NOT NULL," +
                                          "Model VARCHAR(40) NOT NULL" +
                                          "Godina INT(4) NOT NULL"+
                                          "Cijena_po_danu DECIMAL(20) NOT NULL"+
                                          "Količina INT(10) NOT NULL)";
 
-                SqliteCommand naredbaZaKreiranje = new SqliteCommand(sintaksaNaredbe, con);
-                naredbaZaKreiranje.ExecuteReader();
+                SqliteCommand naredbaZaKreiranjeKlijenata = new SqliteCommand(klijenti, con);
+                SqliteCommand naredbaZaKreiranjeAutomobila = new SqliteCommand(automobili, con);
+                naredbaZaKreiranjeKlijenata.ExecuteReader();
+                naredbaZaKreiranjeAutomobila.ExecuteReader();
                 con.Close();
 
             }
