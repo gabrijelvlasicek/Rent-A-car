@@ -43,10 +43,19 @@ namespace Rent_a_car
                                          "Cijena_po_danu DECIMAL(20) NOT NULL,"+
                                          "Količina INT(10) NOT NULL)";
 
+                String rezervacije = "CREATE TABLE IF NOT EXISTS " +
+                                     "Rezervacije(" +
+                                     "OIB INT(11) NOT NULL," +
+                                     "ID INT(5) NOT NULL," +
+                                     "Broj_dana_najma INT(10) NOT NULL)";
+
                 SqliteCommand naredbaZaKreiranjeKlijenata = new SqliteCommand(klijenti, con);
                 SqliteCommand naredbaZaKreiranjeAutomobila = new SqliteCommand(automobili, con);
+                SqliteCommand naredbaZaKreiranjeRezervacija = new SqliteCommand(rezervacije, con);
+
                 naredbaZaKreiranjeKlijenata.ExecuteReader();
                 naredbaZaKreiranjeAutomobila.ExecuteReader();
+                naredbaZaKreiranjeRezervacija.ExecuteReader();
                 con.Close();
 
             }
@@ -288,6 +297,65 @@ namespace Rent_a_car
         }
         //----------------------------------------------------------------AUTOMOBILI----------------------------------------------------------------
 
+        //----------------------------------------------------------------REZERVACIJE----------------------------------------------------------------
+
+        public class detaljiRezervacija
+        {
+            public Int64 OIB { get; set; }
+            public Int64 ID { get; set; }
+            public Int64 Broj_dana_najma { get; set; }
+
+            public detaljiRezervacija(Int64 OIB, Int64 ID, Int64 Broj_dana_najma)
+            {
+                this.OIB = OIB;
+                this.ID = ID;
+                this.Broj_dana_najma = Broj_dana_najma;
+            }
+
+        }
+
+        public static void povezivanjeTablica()
+        {
+            String nazivBaze = "RentAcar.db";
+            string putDoBaze = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze);
+            using (SqliteConnection con = new SqliteConnection($"Filename={putDoBaze}"))
+            {
+                con.Open();
+                SqliteCommand naredba_alter = new SqliteCommand();
+                naredba_alter.Connection = con; //konekcija naredbe se nalazi u varijabli con
+                //naredba_alter.CommandText = "SELECT Rezervacije.OIB, " +
+                //                            "FROM employees" + 
+                //                            "INNER JOIN positions" +
+                //                            "ON employees.position_id = positions.position_id;"
+
+                naredba_alter.ExecuteReader();
+                con.Close();
+
+            }
+        }
+
+        public static List<detaljiRezervacija> DohvatSvihPodataka3()
+        {
+            String nazivBaze = "RentAcar.db";
+
+            List<detaljiRezervacija> rezervacijeList = new List<detaljiRezervacija>();
+            String pathToDB = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze);
+            using (SqliteConnection con = new SqliteConnection($"Filename={pathToDB}"))
+            {
+                con.Open();
+                String naredba_select = "SELECT * FROM Rezervacije";
+                SqliteCommand cmd_getAllRec = new SqliteCommand(naredba_select, con);
+
+                SqliteDataReader reader = cmd_getAllRec.ExecuteReader();
+
+                while (reader.Read()) //dok je moguce citati iz baze cita
+                {
+                    rezervacijeList.Add(new detaljiRezervacija(reader.GetInt64(0), reader.GetInt64(1), reader.GetInt64(2)));
+                }
+                con.Close();
+            }
+            return rezervacijeList;
+        }
 
     }
 }

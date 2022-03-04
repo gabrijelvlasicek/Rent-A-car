@@ -19,8 +19,9 @@
         <!--<Custom:DataGrid x:Name="pogledkorisnika" Margin="0,0,10,0" Grid.Row="1"/>-->
 
         <!-- NASLOV KLIJENATA -->
-        <TextBlock x:Name="textblock_naslov_klijenti" HorizontalAlignment="Left" Text="KLIJENTI | 🚶" TextAlignment="Center" FontFamily="Arial" FontSize="50px" TextWrapping="Wrap" VerticalAlignment="Top" Height="86" Width="589" Margin="30,51,0,0"/>
+        <TextBlock x:Name="textblock_naslov_klijenti" HorizontalAlignment="Left" Text="KLIJENTI | " TextAlignment="Center" FontFamily="Arial" FontSize="50px" TextWrapping="Wrap" VerticalAlignment="Top" Height="86" Width="589" Margin="30,51,0,0"/>
         <Image Source="Assets/logo.png" Margin="1686,6,57,6"/>
+        <Image Source="Assets/people_logo.png" Margin="461,31,1363,30"/>
         <Border BorderThickness = "0, 0, 0, 2" BorderBrush="Black"/>
 
         <StackPanel x:Name="panel_back" Margin="30,51,1726,6" Orientation="Vertical">

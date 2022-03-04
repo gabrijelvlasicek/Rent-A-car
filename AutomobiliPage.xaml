@@ -19,8 +19,9 @@
         <!--<Custom:DataGrid x:Name="pogledkorisnika" Margin="0,0,10,0" Grid.Row="1"/>-->
 
         <!-- NASLOV AUTOMOBILA -->
-        <TextBlock x:Name="textblock_naslov_automobili" HorizontalAlignment="Left" Text="AUTOMOBILI | 🚶" TextAlignment="Center" FontFamily="Arial" FontSize="50px" TextWrapping="Wrap" VerticalAlignment="Top" Height="86" Width="589" Margin="30,51,0,0"/>
+        <TextBlock x:Name="textblock_naslov_automobili" HorizontalAlignment="Left" Text="AUTOMOBILI | " TextAlignment="Center" FontFamily="Arial" FontSize="50px" TextWrapping="Wrap" VerticalAlignment="Top" Height="86" Width="589" Margin="30,51,0,0"/>
         <Image Source="Assets/logo.png" Margin="1686,6,57,6"/>
+        <Image Source="Assets/car_logo.png" Margin="495,31,1306,31"/>
         <Border BorderThickness = "0, 0, 0, 2" BorderBrush="Black"/>
 
         <StackPanel x:Name="panel_back1" Margin="30,51,1726,6" Orientation="Vertical">
@@ -59,7 +60,7 @@
         <Button x:Name="button_izbrisi_podatke1" Content="IZBRIŠI SVE AUTOMOBILE" CornerRadius="5" Background="#e6aeae" Margin="1091,748,0,0" VerticalAlignment="Top" Height="55" Width="684" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Row="1" Click="button_izbrisi_podatke_Click1"/>
         <TextBlock x:Name="textblock_delete_naslov1" Text="BRISANJE AUTOMOBILA PO ID-u" HorizontalAlignment="Left" Margin="199,578,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="598" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline"/>
 
-        <TextBlock x:Name="textblock_ID_delete" Text="OIB: " HorizontalAlignment="Left" Margin="232,657,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold"/>
+        <TextBlock x:Name="textblock_ID_delete" Text="ID: " HorizontalAlignment="Left" Margin="232,657,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold"/>
         <TextBox x:Name="textbox_ID_delete" TextAlignment="Left" HorizontalAlignment="Left" Margin="372,657,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite ID"/>
         <Button x:Name="button_izbrisi_odreden_podatak1" Content="IZBRIŠI KLIJENTA" CornerRadius="5" Background="#e6aeae" Margin="164,748,0,0" VerticalAlignment="Top" Height="55" Width="689" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Row="1" Click="button_izbrisi_odreden_podatak_Click1"/>
     </Grid>

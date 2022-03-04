@@ -25,6 +25,14 @@ namespace Rent_a_car
         public RezervacijePage()
         {
             this.InitializeComponent();
+            Rent_a_car_DB.povezivanjeTablica();
+            pregledrezervacija.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka3();
+
+        }
+
+        private void button_back_Click1(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
         }
     }
 }
