@@ -194,6 +194,9 @@
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls.DataGrid">
       <Version>7.1.2</Version>
     </PackageReference>
+    <PackageReference Include="System.Data.SqlClient">
+      <Version>4.8.3</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

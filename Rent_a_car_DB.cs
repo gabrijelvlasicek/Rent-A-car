@@ -324,9 +324,9 @@ namespace Rent_a_car
                 SqliteCommand naredba_alter = new SqliteCommand();
                 naredba_alter.Connection = con; //konekcija naredbe se nalazi u varijabli con
                 //naredba_alter.CommandText = "SELECT Rezervacije.OIB, " +
-                //                            "FROM employees" + 
-                //                            "INNER JOIN positions" +
-                //                            "ON employees.position_id = positions.position_id;"
+                //                          "FROM employees" +
+                //                           "INNER JOIN positions" +
+                //                            "ON employees.position_id = positions.position_id;";
 
                 naredba_alter.ExecuteReader();
                 con.Close();
