@@ -299,6 +299,7 @@ namespace Rent_a_car
 
         //----------------------------------------------------------------REZERVACIJE----------------------------------------------------------------
 
+
         public class detaljiRezervacija
         {
             public Int64 OIB { get; set; }
@@ -314,7 +315,29 @@ namespace Rent_a_car
 
         }
 
-        public static void povezivanjeTablica()
+        public static void dodavanjeRezervacija(Int64 OIB, Int64 ID, Int64 Broj_dana_najma)
+        {
+            String nazivBaze = "RentAcar.db";
+            if (!OIB.Equals("") && !ID.Equals("") && !Broj_dana_najma.Equals(""))
+            {
+                string putDoBaze = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze);
+                using (SqliteConnection con = new SqliteConnection($"Filename={putDoBaze}"))
+                {
+                    con.Open();
+                    SqliteCommand naredba_insert = new SqliteCommand();
+                    naredba_insert.Connection = con; //konekcija naredbe se nalazi u varijabli con
+                    naredba_insert.CommandText = "INSERT INTO Rezervacije(OIB, ID, Broj_dana_najma) VALUES(@OIB, @ID, @Broj_dana_najma);";
+                    naredba_insert.Parameters.AddWithValue("@OIB", OIB);
+                    naredba_insert.Parameters.AddWithValue("@ID", ID);
+                    naredba_insert.Parameters.AddWithValue("@Broj_dana_najma", Broj_dana_najma);
+
+                    naredba_insert.ExecuteReader();
+                    con.Close();
+                }
+            }
+        }
+
+        public static void brisanjeRezervacija(Int64 OIB)
         {
             String nazivBaze = "RentAcar.db";
             string putDoBaze = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze);
@@ -330,7 +353,21 @@ namespace Rent_a_car
 
                 naredba_alter.ExecuteReader();
                 con.Close();
+            }
+        }
 
+        public static void izbrisi3()
+        {
+            String nazivBaze = "RentAcar.db";
+            String pathToDB = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze);
+
+            using (SqliteConnection con = new SqliteConnection($"Filename={pathToDB}"))
+            {
+                con.Open();
+                String naredba_delete = "DELETE FROM Rezervacije";
+                SqliteCommand cmd_getAllRec = new SqliteCommand(naredba_delete, con);
+                SqliteDataReader reader = cmd_getAllRec.ExecuteReader();
+                con.Close();
             }
         }
 
