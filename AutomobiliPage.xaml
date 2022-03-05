@@ -7,7 +7,7 @@
     xmlns:Custom="using:Microsoft.Toolkit.Uwp.UI.Controls"
     x:Class="Rent_a_car.AutomobiliPage"
     mc:Ignorable="d"
-    Background="#e6e6e6">
+    Background="#C6C6C6">
 
     <Grid Height="1080" VerticalAlignment="Top">
         <Grid.RowDefinitions>

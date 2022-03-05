@@ -7,7 +7,7 @@
     xmlns:Custom="using:Microsoft.Toolkit.Uwp.UI.Controls"
     x:Class="Rent_a_car.MainPage"
     mc:Ignorable="d"
-    Background="#e6e6e6">
+    Background="#C6C6C6">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40*"/>
@@ -18,7 +18,7 @@
         <!--<Custom:DataGrid x:Name="pogledkorisnika" Margin="0,0,10,0" Grid.Row="1"/>-->
 
         <!-- NASLOV GLAVNOG IZBORNIKA -->
-        <TextBlock x:Name="textblock_naslov_izbornika" HorizontalAlignment="Left" Text="GLAVNI IZBORNIK | 📑" TextAlignment="Center" FontFamily="Arial" FontSize="50px" TextWrapping="Wrap" VerticalAlignment="Top" Height="86" Width="589" Margin="98,51,0,0"/>
+        <TextBlock x:Name="textblock_naslov_izbornika" HorizontalAlignment="Left" Text="GLAVNI IZBORNIK 📑" TextAlignment="Center" FontFamily="Syne Mono" FontSize="50px" TextWrapping="Wrap" VerticalAlignment="Top" Height="86" Width="589" Margin="98,51,0,0"/>
         <Image Source="Assets/logo.png" Margin="1686,6,57,6"/>
         <Border BorderThickness = "0, 0, 0, 2" BorderBrush="Black"></Border>
 
@@ -28,7 +28,7 @@
             <Button x:Name="button_klijenti" Height="575" Width="350" CornerRadius="20" BorderBrush="Black" Background="#FFE6AEAE" Click="button_klijenti_Click">
                 <StackPanel>
                     <Image Source="Assets/people_logo.png" Height="407" Width="298"/>
-                    <TextBlock Text="KLIJENTI" TextAlignment="Center" FontFamily="Arial" FontSize="40" Foreground="Black" FontWeight="Bold" FontStyle="Italic"/>
+                    <TextBlock Text="KLIJENTI" TextAlignment="Center" FontFamily="Syne Mono" FontSize="40" Foreground="Black" FontWeight="Bold" FontStyle="Italic"/>
                 </StackPanel>
             </Button>
         </StackPanel>
@@ -38,7 +38,7 @@
             <Button x:Name="button_auti" Height="575" Width="350" CornerRadius="20" BorderBrush="Black" Background="#FFE6AEAE" Click="button_auti_Click">
                 <StackPanel>
                     <Image Source="Assets/car_logo.png" Height="407" Width="298"/>
-                    <TextBlock Text="AUTOMOBILI" TextAlignment="Center" FontFamily="Arial" FontSize="40" Foreground="Black" FontWeight="Bold" FontStyle="Italic"/>
+                    <TextBlock Text="AUTOMOBILI" TextAlignment="Center" FontFamily="Syne Mono" FontSize="40" Foreground="Black" FontWeight="Bold" FontStyle="Italic"/>
                 </StackPanel>
             </Button>
         </StackPanel>
@@ -48,7 +48,7 @@
             <Button x:Name="button_rezervacije" Height="575" Width="350" CornerRadius="20" BorderBrush="Black" Background="#FFE6AEAE" Click="button_rezervacije_Click">
                 <StackPanel>
                     <Image Source="Assets/reserved_logo.png" Height="407" Width="298"/>
-                    <TextBlock Text="REZERVACIJE" TextAlignment="Center" FontFamily="Arial" FontSize="40" Foreground="Black" FontWeight="Bold" FontStyle="Italic"/>
+                    <TextBlock Text="REZERVACIJE" TextAlignment="Center" FontFamily="Syne Mono" FontSize="40" Foreground="Black" FontWeight="Bold" FontStyle="Italic"/>
                 </StackPanel>
             </Button>
         </StackPanel>
