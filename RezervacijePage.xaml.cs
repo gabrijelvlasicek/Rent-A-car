@@ -34,7 +34,7 @@ namespace Rent_a_car
             this.Frame.Navigate(typeof(MainPage));
         }
 
-        private async void button_unesi_rezervaciju2(object sender, RoutedEventArgs e)
+        private async void button_prijavi_se_Click(object sender, RoutedEventArgs e)
         {
             pregledrezervacija.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka3();
 
