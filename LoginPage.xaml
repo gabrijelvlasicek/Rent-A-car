@@ -23,6 +23,7 @@
 
         <!--DODAVANJE BORDERA-->
         <Border BorderThickness = "0, 0, 1, 0" BorderBrush="Black" >
+            <Image Source="Assets/car_logo.png" Margin="431,693,63,233"/>
         </Border>
 
         <!--SLIKE-->
@@ -33,7 +34,6 @@
 
         <!--OSTALI ELEMENTI-->
         <TextBlock x:Name="textblock_title" HorizontalAlignment="Left" Margin="-24,701,0,0" Text="RENT A CAR" TextAlignment="Center" FontFamily="Syne Mono" FontSize="60px" TextWrapping="Wrap" VerticalAlignment="Top" Height="96" Width="526" FontWeight="Bold" FontStyle="Italic" CharacterSpacing="2"/>
-        <Image Source="Assets/car_logo.png" Margin="463,671,57,297"/>
         <TextBlock x:Name="textblock_log_or_sign" HorizontalAlignment="Left" Margin="228,235,0,0" Text="PRIJAVITE SE 💻" TextAlignment="Center" FontFamily="Syne Mono" FontSize="45px" TextWrapping="Wrap" VerticalAlignment="Top" Height="61" Width="858" Grid.Column="1" FontWeight="Bold" TextDecorations="None"/>
         <TextBlock x:Name="textblock_korisnicko" HorizontalAlignment="Left" Margin="182,414,0,0" Text="Korisničko ime " TextAlignment="Center" FontFamily="Syne Mono" FontSize="25px" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="197" Grid.Column="1" FontWeight="Bold" TextDecorations="None"/>
         <TextBlock x:Name="textblock_loznika" HorizontalAlignment="Left" Margin="139,540,0,0" Text="Lozinka " TextAlignment="Center" FontFamily="Syne Mono" FontSize="25px" TextWrapping="Wrap" VerticalAlignment="Top" Height="40" Width="197" Grid.Column="1" FontWeight="Bold" TextDecorations="None"/>
