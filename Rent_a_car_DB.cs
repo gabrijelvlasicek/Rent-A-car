@@ -42,12 +42,11 @@ namespace Rent_a_car
                                          "Godina INT(4) NOT NULL,"+
                                          "Cijena_po_danu DECIMAL(20) NOT NULL,"+
                                          "Količina INT(10) NOT NULL)";
-
                 String rezervacije = "CREATE TABLE IF NOT EXISTS " +
-                                     "Rezervacije(" +
-                                     "OIB INT(11) NOT NULL," +
-                                     "ID INT(5) NOT NULL," +
-                                     "Broj_dana_najma INT(10) NOT NULL)";
+                                         "Rezervacije(" +
+                                         "OIB INT(11) NOT NULL, " +
+                                         "ID INT(5) NOT NULL, " +
+                                         "Broj_dana_najma VARCHAR(30) NOT NULL)";
 
                 SqliteCommand naredbaZaKreiranjeKlijenata = new SqliteCommand(klijenti, con);
                 SqliteCommand naredbaZaKreiranjeAutomobila = new SqliteCommand(automobili, con);
@@ -218,7 +217,7 @@ namespace Rent_a_car
 
         }
 
-        public static void dodavanjeAutomobila(Int64 ID, String Model, Int64 Godina, Decimal Cijena_po_danu, Int64 Količina)
+        public static async void dodavanjeAutomobila(Int64 ID, String Model, Int64 Godina, Decimal Cijena_po_danu, Int64 Količina)
         {
             String nazivBaze = "RentAcar.db";
             if (!ID.Equals("") && !Model.Equals("") && !Godina.Equals("") && !Cijena_po_danu.Equals("") && !Količina.Equals(""))
@@ -236,10 +235,41 @@ namespace Rent_a_car
                     naredba_insert.Parameters.AddWithValue("@Cijena_po_danu", Cijena_po_danu);
                     naredba_insert.Parameters.AddWithValue("@Količina", Količina);
 
-                    naredba_insert.ExecuteReader();
+                    if (!Rent_a_car_DB.provjeraID().Contains(ID))
+                    {
+                        naredba_insert.ExecuteReader();
+                    }
+                    else
+                    {
+                        MessageDialog dialog = new MessageDialog("Ovaj ID automobila već postoji.", "Pogreška");
+                        await dialog.ShowAsync();
+                    }
                     con.Close();
                 }
             }
+        }
+
+        public static List<Int64> provjeraID()
+        {
+            String nazivBaze = "RentAcar.db";
+
+            List<Int64> idList = new List<Int64>();
+            String pathToDB = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze);
+            using (SqliteConnection con = new SqliteConnection($"Filename={pathToDB}"))
+            {
+                con.Open();
+                String naredba_select = "SELECT ID FROM Automobili";
+                SqliteCommand cmd_getAllRec = new SqliteCommand(naredba_select, con);
+                SqliteDataReader reader = cmd_getAllRec.ExecuteReader();
+
+                while (reader.Read()) //dok je moguce citati iz baze cita
+                {
+                    idList.Add(reader.GetInt64(0));
+                }
+
+                con.Close();
+            }
+            return idList;
         }
 
         public static void brisanjeAutomobila(Int64 ID)
@@ -298,15 +328,103 @@ namespace Rent_a_car
         //----------------------------------------------------------------AUTOMOBILI----------------------------------------------------------------
 
         //----------------------------------------------------------------REZERVACIJE----------------------------------------------------------------
+        public static async void dodavanjeRezervacija(Int64 OIB, Int64 ID, String Broj_dana_najma)
+        {
+            String nazivBaze = "RentAcar.db";
+            if (!OIB.Equals("") && !ID.Equals("") && !Broj_dana_najma.Equals(""))
+            {
+                String putDoBaze = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze);
+                using (SqliteConnection con = new SqliteConnection($"Filename={putDoBaze}"))
+                {
+                    con.Open();
+                    SqliteCommand naredba_insert_rezervacije = new SqliteCommand();
+                    naredba_insert_rezervacije.Connection = con; //konekcija naredbe se nalazi u varijabli con
 
+                    //INSERT INTO Rezervacije(OIB, ID, Broj_dana_najma) VALUES(@OIB, @ID, @Broj_dana_najma);
+                    naredba_insert_rezervacije.CommandText = "INSERT INTO Rezervacije(OIB, ID, Broj_dana_najma) VALUES(@OIB, @ID, @Broj_dana_najma);";
+                    naredba_insert_rezervacije.Parameters.AddWithValue("@OIB", OIB);
+                    naredba_insert_rezervacije.Parameters.AddWithValue("@ID", ID);
+                    naredba_insert_rezervacije.Parameters.AddWithValue("@Broj_dana_najma", Broj_dana_najma);
+
+
+                    if (!Rent_a_car_DB.provjeraOib().Contains(OIB))
+                    {
+                        if(!Rent_a_car_DB.provjeraIDa().Contains(ID))
+                        {
+                            naredba_insert_rezervacije.ExecuteReader();
+                        }
+                        else
+                        {
+                            MessageDialog dialog = new MessageDialog("Ovaj ID automobila već postoji.", "Pogreška");
+                            await dialog.ShowAsync();
+                        }
+
+                    }
+                    else
+                    {
+                        MessageDialog dialog = new MessageDialog("Ovaj OIB ili ID automobila već postoji.", "Pogreška");
+                        await dialog.ShowAsync();
+                    }
+
+                    con.Close();
+                }
+            }
+        }
+
+
+        public static List<Int64> provjeraOib()
+        {
+            String nazivBaze = "RentAcar.db";
+
+            List<Int64> OIBList = new List<Int64>();
+            String pathToDB = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze);
+            using (SqliteConnection con = new SqliteConnection($"Filename={pathToDB}"))
+            {
+                con.Open();
+                String naredba_select = "SELECT OIB FROM Rezervacije";
+                SqliteCommand cmd_getAllRec = new SqliteCommand(naredba_select, con);
+                SqliteDataReader reader = cmd_getAllRec.ExecuteReader();
+
+                while (reader.Read()) //dok je moguce citati iz baze cita
+                {
+                    OIBList.Add(reader.GetInt64(0));
+                }
+
+                con.Close();
+            }
+            return OIBList;
+        }
+
+        public static List<Int64> provjeraIDa()
+        {
+            String nazivBaze = "RentAcar.db";
+
+            List<Int64> IDaList = new List<Int64>();
+            String pathToDB = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze);
+            using (SqliteConnection con = new SqliteConnection($"Filename={pathToDB}"))
+            {
+                con.Open();
+                String naredba_select = "SELECT ID FROM Rezervacije";
+                SqliteCommand cmd_getAllRec = new SqliteCommand(naredba_select, con);
+                SqliteDataReader reader = cmd_getAllRec.ExecuteReader();
+
+                while (reader.Read()) //dok je moguce citati iz baze cita
+                {
+                    IDaList.Add(reader.GetInt64(0));
+                }
+
+                con.Close();
+            }
+            return IDaList;
+        }
 
         public class detaljiRezervacija
         {
             public Int64 OIB { get; set; }
             public Int64 ID { get; set; }
-            public Int64 Broj_dana_najma { get; set; }
+            public String Broj_dana_najma { get; set; }
 
-            public detaljiRezervacija(Int64 OIB, Int64 ID, Int64 Broj_dana_najma)
+            public detaljiRezervacija (Int64 OIB, Int64 ID, String Broj_dana_najma)
             {
                 this.OIB = OIB;
                 this.ID = ID;
@@ -314,29 +432,6 @@ namespace Rent_a_car
             }
 
         }
-
-        public static void dodavanjeRezervacija(Int64 OIB, Int64 ID, Int64 Broj_dana_najma)
-        {
-            String nazivBaze = "RentAcar.db";
-            if (!OIB.Equals("") && !ID.Equals("") && !Broj_dana_najma.Equals(""))
-            {
-                string putDoBaze = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze);
-                using (SqliteConnection con = new SqliteConnection($"Filename={putDoBaze}"))
-                {
-                    con.Open();
-                    SqliteCommand naredba_insert = new SqliteCommand();
-                    naredba_insert.Connection = con; //konekcija naredbe se nalazi u varijabli con
-                    naredba_insert.CommandText = "INSERT INTO Rezervacije(OIB, ID, Broj_dana_najma) VALUES(@OIB, @ID, @Broj_dana_najma);";
-                    naredba_insert.Parameters.AddWithValue("@OIB", OIB);
-                    naredba_insert.Parameters.AddWithValue("@ID", ID);
-                    naredba_insert.Parameters.AddWithValue("@Broj_dana_najma", Broj_dana_najma);
-
-                    naredba_insert.ExecuteReader();
-                    con.Close();
-                }
-            }
-        }
-
         public static void brisanjeRezervacija(Int64 OIB)
         {
             String nazivBaze = "RentAcar.db";
@@ -344,17 +439,15 @@ namespace Rent_a_car
             using (SqliteConnection con = new SqliteConnection($"Filename={putDoBaze}"))
             {
                 con.Open();
-                SqliteCommand naredba_alter = new SqliteCommand();
-                naredba_alter.Connection = con; //konekcija naredbe se nalazi u varijabli con
-                //naredba_alter.CommandText = "SELECT Rezervacije.OIB, " +
-                //                          "FROM employees" +
-                //                           "INNER JOIN positions" +
-                //                            "ON employees.position_id = positions.position_id;";
-
-                naredba_alter.ExecuteReader();
+                SqliteCommand naredba_insert = new SqliteCommand();
+                naredba_insert.Connection = con; //konekcija naredbe se nalazi u varijabli con
+                naredba_insert.CommandText = "DELETE FROM Rezervacije WHERE OIB=@OIB";
+                naredba_insert.Parameters.AddWithValue("@OIB", OIB);
+                naredba_insert.ExecuteReader();
                 con.Close();
             }
         }
+
 
         public static void izbrisi3()
         {
@@ -387,12 +480,13 @@ namespace Rent_a_car
 
                 while (reader.Read()) //dok je moguce citati iz baze cita
                 {
-                    rezervacijeList.Add(new detaljiRezervacija(reader.GetInt64(0), reader.GetInt64(1), reader.GetInt64(2)));
+                    rezervacijeList.Add(new detaljiRezervacija(reader.GetInt64(0), reader.GetInt64(1), reader.GetString(2)));
                 }
                 con.Close();
             }
             return rezervacijeList;
         }
+
 
     }
 }

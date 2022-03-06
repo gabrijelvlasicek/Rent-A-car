@@ -36,16 +36,17 @@ namespace Rent_a_car
 
         private async void button_prijavi_se_Click(object sender, RoutedEventArgs e)
         {
-            pregledrezervacija.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka3();
 
-            if (textbox_oib.Text.Length == 11)
+            pregledrezervacija.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka();
+
+            if (textbox_OIB.Text.Length == 11)
             {
-                if (textbox_oib.Text != "" && textbox_id_auta.Text != "" && textbox_broj_dana.Text != "")
+                if (textbox_OIB.Text != "" && textbox_ID_auta.Text != "" && textbox_broj_dana_najma.Text != "")
                 {
-                    Rent_a_car_DB.dodavanjeRezervacija(Convert.ToInt64(textbox_oib.Text), Convert.ToInt64(textbox_id_auta), Convert.ToInt64(textbox_broj_dana.Text));
-                    textbox_oib.Text = "";
-                    textblock_id_auta.Text = "";
-                    textbox_broj_dana.Text = "";
+                    Rent_a_car_DB.dodavanjeRezervacija(Convert.ToInt64(textbox_OIB.Text), Convert.ToInt64(textbox_ID_auta.Text), textbox_broj_dana_najma.Text);
+                    textbox_OIB.Text = "";
+                    textbox_ID_auta.Text = "";
+                    textbox_broj_dana_najma.Text = "";
                     pregledrezervacija.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka3();
                 }
             }
@@ -59,22 +60,22 @@ namespace Rent_a_car
             pregledrezervacija.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka3();
         }
 
-        private void button_izbrisi_podatke_Click(object sender, RoutedEventArgs e)
+        private void button_izbrisi_podatke_Click1(object sender, RoutedEventArgs e)
         {
             Rent_a_car_DB.izbrisi3();
             pregledrezervacija.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka3();
         }
 
-        private async void button_izbrisi_odreden_podatak_Click(object sender, RoutedEventArgs e)
+        private async void button_izbrisi_odreden_podatak_Click1(object sender, RoutedEventArgs e)
         {
             //Int64 oib = Convert.ToInt64(textbox_oib_delete.Text);
             if (textbox_oib_delete.Text != "" && textbox_oib_delete.Text.Length == 11)
             {
                 Rent_a_car_DB.brisanjeRezervacija(Convert.ToInt64(textbox_oib_delete.Text));
                 pregledrezervacija.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka3();
-                textbox_oib_delete.Text = "";
+                textbox_OIB.Text = "";
             }
-            else if (textbox_oib.Text.Length < 11 || textbox_oib.Text.Length > 11)
+            else if (textbox_OIB.Text.Length < 11 || textbox_OIB.Text.Length > 11)
             {
                 MessageDialog dialog = new MessageDialog("OIB mora sadržavati 11 brojeva!", "Pogreška");
                 await dialog.ShowAsync();
@@ -87,7 +88,5 @@ namespace Rent_a_car
             }
 
         }
-
-
     }
 }

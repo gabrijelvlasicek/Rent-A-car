@@ -7,7 +7,7 @@
     xmlns:Custom="using:Microsoft.Toolkit.Uwp.UI.Controls"
     x:Class="Rent_a_car.RezervacijePage"
     mc:Ignorable="d"
-    Background="#e6e6e6">
+    Background="#C6C6C6">
 
     <Grid Height="1080" VerticalAlignment="Top">
         <Grid.RowDefinitions>
@@ -33,21 +33,23 @@
                 </StackPanel>
             </Button>
         </StackPanel>
-        <Custom:DataGrid x:Name="pregledrezervacija" HorizontalAlignment="Left" Height="500" Margin="1121,189,0,0" Grid.Row="2" VerticalAlignment="Top" Width="600"/>
-        <TextBlock x:Name="textblock_naslov" Text="UNOS REZERVACIJA" HorizontalAlignment="Left" Margin="180,42,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="598" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline" Grid.RowSpan="2"/>
-        <TextBlock x:Name="textblock_popis_rezervacija" Text="POPIS REZERVACIJA" HorizontalAlignment="Left" Margin="1091,42,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="598" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline" Grid.RowSpan="2"/>
-        <TextBlock x:Name="textblock_oib" Text="OIB: " HorizontalAlignment="Left" Margin="148,125,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold" Grid.RowSpan="2"/>
-        <TextBox x:Name="textbox_oib" TextAlignment="Left" HorizontalAlignment="Left" Margin="535,125,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite OIB" Grid.RowSpan="2"/>
-        <TextBlock x:Name="textblock_id_auta" Text="ID AUTOMOBILA: " HorizontalAlignment="Left" Margin="164,192,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="275" FontWeight="Bold" Grid.RowSpan="2"/>
-        <TextBox x:Name="textbox_id_auta" TextAlignment="Left" HorizontalAlignment="Left" Margin="537,192,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite ID automobila" Grid.RowSpan="2"/>
-        <TextBlock x:Name="textblock_broj_dana" Text="BROJ DANA NAJMA: " HorizontalAlignment="Left" Margin="152,252,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="336" FontWeight="Bold" Grid.RowSpan="2"/>
-        <TextBox x:Name="textbox_broj_dana" TextAlignment="Left" HorizontalAlignment="Left" Margin="535,252,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite broj dana najma" Grid.RowSpan="2"/>
-        <Button x:Name="button_unesi_rezervaciju" Content="UNESI REZERVACIJU" CornerRadius="5" Background="#e6aeae" Margin="159,343,0,0" VerticalAlignment="Top" Height="55" Width="689" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Click="button_prijavi_se_Click" Grid.Row="1" Grid.RowSpan="2"/>
-        <Button x:Name="button_izbrisi_rezervacije" Content="IZBRIŠI SVE REZERVACIJE" CornerRadius="5" Background="#e6aeae" Margin="1091,748,0,0" VerticalAlignment="Top" Height="55" Width="684" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Row="1" Click="button_izbrisi_podatke_Click" Grid.RowSpan="2"/>
-        <TextBlock x:Name="textblock_delete_naslov" Text="BRISANJE REZERVACIJA PO OIB-u" HorizontalAlignment="Left" Margin="199,541,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="598" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline" Grid.RowSpan="2"/>
-        <TextBlock x:Name="textblock_oib_delete" Text="OIB: " HorizontalAlignment="Left" Margin="232,620,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold" Grid.RowSpan="2"/>
-        <TextBox x:Name="textbox_oib_delete" TextAlignment="Left" HorizontalAlignment="Left" Margin="372,620,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite OIB" Grid.RowSpan="2"/>
-        <Button x:Name="button_izbrisi_odreden_podatak" Content="IZBRIŠI REZERVACIJU" CornerRadius="5" Background="#e6aeae" Margin="164,711,0,0" VerticalAlignment="Top" Height="55" Width="689" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Row="1" Click="button_izbrisi_odreden_podatak_Click" Grid.RowSpan="2"/>
+
+        <TextBlock x:Name="textblock_naslov1" Text="UNOS REZERVACIJA" HorizontalAlignment="Left" Margin="180,42,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="598" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline" Grid.RowSpan="2"/>
+        <TextBlock x:Name="textblock_popis_automobila" Text="POPIS REZERVACIJA" HorizontalAlignment="Left" Margin="1091,42,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="598" FontWeight="Bold" FontStyle="Italic" Grid.RowSpan="2"/>
+        <TextBlock x:Name="textblock_ID" HorizontalAlignment="Left" Margin="156,125,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold" Grid.RowSpan="2"><Run Text="OIB:"/><LineBreak/><Run/><LineBreak/><Run Text=": "/></TextBlock>
+        <TextBox x:Name="textbox_OIB" TextAlignment="Left" HorizontalAlignment="Left" Margin="535,125,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite OIB" Grid.RowSpan="2"/>
+        <TextBlock x:Name="textblock_model" Text="ID AUTOMOBILA" HorizontalAlignment="Left" Margin="175,192,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="253" FontWeight="Bold" Grid.RowSpan="2"/>
+        <TextBox x:Name="textbox_ID_auta" TextAlignment="Left" HorizontalAlignment="Left" Margin="537,192,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite model" Grid.RowSpan="2"/>
+        <TextBlock x:Name="textblock_godina" Text="BROJ DANA NAJMA:" HorizontalAlignment="Left" Margin="148,252,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="360" FontWeight="Bold" Grid.RowSpan="2"/>
+        <TextBox x:Name="textbox_broj_dana_najma" TextAlignment="Left" HorizontalAlignment="Left" Margin="535,252,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite broj dana najma" Grid.RowSpan="2"/>
+        <Button x:Name="button_unesi_podatke1" Content="UNESI REZERVACIJU" CornerRadius="5" Background="#e6aeae" Margin="177,325,0,0" VerticalAlignment="Top" Height="55" Width="689" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Click="button_prijavi_se_Click" Grid.Row="1" Grid.RowSpan="2"/>
+        <Custom:DataGrid x:Name="pregledrezervacija" HorizontalAlignment="Left" Height="536" Margin="1091,117,0,0" Grid.Row="1" VerticalAlignment="Top" Width="684" Grid.RowSpan="2"/>
+        <Button x:Name="button_izbrisi_podatke1" Content="IZBRIŠI SVE REZERVACIJE" CornerRadius="5" Background="#e6aeae" Margin="1091,691,0,0" VerticalAlignment="Top" Height="55" Width="684" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Row="1" Click="button_izbrisi_podatke_Click1" Grid.RowSpan="2"/>
+        <TextBlock x:Name="textblock_delete_naslov1" Text="BRISANJE REZERVACIJE PO OIB-u" HorizontalAlignment="Left" Margin="212,521,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="598" FontWeight="Bold" FontStyle="Italic" TextDecorations="Underline" Grid.RowSpan="2"/>
+        <TextBlock x:Name="textblock_oib_delete" Text="OIB: " HorizontalAlignment="Left" Margin="245,600,0,0" Grid.Row="1" TextAlignment="Center" FontFamily="Arial" FontSize="30px" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="113" FontWeight="Bold" Grid.RowSpan="2"/>
+        <TextBox x:Name="textbox_oib_delete" TextAlignment="Left" HorizontalAlignment="Left" Margin="385,600,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Height="34" PlaceholderText="Unesite OIB" Grid.RowSpan="2"/>
+        <Button x:Name="button_izbrisi_odreden_podatak1" Content="IZBRIŠI REZERVACIJU" CornerRadius="5" Background="#e6aeae" Margin="177,691,0,0" VerticalAlignment="Top" Height="55" Width="689" FontFamily="Arial" FontSize="30px" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Row="1" Click="button_izbrisi_odreden_podatak_Click1" Grid.RowSpan="2"/>
+
 
     </Grid>
 </Page>
