@@ -39,7 +39,7 @@ namespace Rent_a_car
 
             pregledrezervacija.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka();
 
-            if (textbox_OIB.Text.Length == 11)
+            if (textbox_OIB.Text.Length == 11 && textbox_ID_auta.Text.Length == 5)
             {
                 if (textbox_OIB.Text != "" && textbox_ID_auta.Text != "" && textbox_broj_dana_najma.Text != "")
                 {
