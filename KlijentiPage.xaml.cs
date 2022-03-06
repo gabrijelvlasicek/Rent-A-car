@@ -36,11 +36,7 @@ namespace Rent_a_car
 
         //unos podataka u databazu (gumb)
         private async void button_prijavi_se_Click(object sender, RoutedEventArgs e)
-        {
-            //Rent_a_car_DB.izbrisi();
-            //Rent_a_car_DB.dodavanjeKlijenta(11111178910, "DEAN", "VIDOVIC", "A. NEMCICA 12", "30.10.2004.");
-            //pogledkorisnika.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka();
-
+        { 
             pregledkorisnika.ItemsSource = Rent_a_car_DB.DohvatSvihPodataka();
 
             //Int64 oib = Convert.ToInt64(textbox_oib.Text);

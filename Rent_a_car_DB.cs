@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,7 @@ namespace Rent_a_car
             String nazivBaze = "RentAcar.db";
             await ApplicationData.Current.LocalFolder.CreateFileAsync(nazivBaze, CreationCollisionOption.OpenIfExists); //naziv baze, i funkcija koja ju otvara ako postoji
             String putDoBaze = Path.Combine(ApplicationData.Current.LocalFolder.Path, nazivBaze); //funkcija koja trazi put do baze koja je drugi argument
-
+            Debug.WriteLine(putDoBaze);
             using (SqliteConnection con = new SqliteConnection($"Filename={putDoBaze}")) 
             {
                 con.Open();
