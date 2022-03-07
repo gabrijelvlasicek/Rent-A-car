@@ -8,8 +8,8 @@
 
   <Identity
     Name="fd0bea83-eaa6-43a6-a964-90d757df92b4"
-    Publisher="CN=Gabrijel Vlašiček"
-    Version="1.0.2.0" />
+    Publisher="CN=Gabrijel"
+    Version="1.0.8.0" />
 
   <mp:PhoneIdentity PhoneProductId="fd0bea83-eaa6-43a6-a964-90d757df92b4" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
